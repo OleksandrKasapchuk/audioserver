@@ -1,0 +1,47 @@
+<link href="/static/css/style.css" rel="stylesheet"  type="text/css">
+<header id="hoverText">
+        <nav class="navbar navbar-expand-lg">
+            <span class="container-fluid">
+                <a id="hoverText" class="navbar-brand" href="/"><h1>Main</h1></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a id="hoverText" class="nav-link active" aria-current="page" href="/authors"><h1>Authors</h1></a>
+                        <a id="hoverText" class="nav-link active" aria-current="page" href="/songs/"><h1>Songs</h1></a>
+                    </div>
+                </div>
+              </span>
+        </nav>
+</header>
+<script>
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+    
+    // Завантаження аудіофайлу
+    function loadSound(url) {
+      return fetch(url)
+        .then(response => response.arrayBuffer())
+        .then(buffer => audioCtx.decodeAudioData(buffer));
+    }
+    
+    // Відтворення аудіофайлу
+    function playSound(buffer) {
+      const source = audioCtx.createBufferSource();
+      source.buffer = buffer;
+      source.connect(audioCtx.destination);
+      source.start();
+    }
+    
+    // Коли курсор наводиться на текст
+    document.getElementById('hoverText').addEventListener('mouseover', async () => {
+      try {
+        const audioBuffer = await loadSound('../static/audios/sound.mp3'); // Завантаження вашого аудіофайлу
+        playSound(audioBuffer); // Відтворення звуку
+      } catch (err) {
+        console.error('Помилка завантаження аудіофайлу:', err);
+      }
+    });
+    </script>

@@ -1,0 +1,34 @@
+h2,h1 {
+        font-family:monospace;
+    }
+h1:hover {
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
+}
+img:hover {
+    transform-origin: top left;
+    transform: matrix(2, 0.5, -0.5, 1, 50, 20);
+}
+body {
+    background: linear-gradient(90deg, rgba(163,161,157,1) 0%, rgba(236,227,206,1) 50%, rgba(178,176,170,1) 100%);
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.nav-link {
+    color: red
+}
+.nav-link:visited {
+    text-decoration: none;
+    color: darkslateblue;
+}
+
+header {
+    background-color: #739072;
+    border: 10px;
+    border-radius: 30px;
+    border-style: groove;
+}

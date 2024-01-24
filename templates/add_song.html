@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block links %}
+    
+{% endblock links %}
+
+{% block content %}
+    <link href="/static/css/style.css" rel="stylesheet"  type="text/css">
+    <style>
+        input.a {
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <form method="post">
+        <input type="text" name="title" placeholder="title" class="a"><br>
+        <input type="text" name="description" placeholder="description" class="a"><br>
+        <input type="number" name="year" placeholder="year" class="a"><br>
+        <input type="submit" class="a"><br>
+    </form>
+{% endblock content %}

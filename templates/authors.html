@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block links %}
+    
+{% endblock links %}
+
+
+{% block content %}
+    <link href="/static/css/style.css" rel="stylesheet"  type="text/css">
+    <h2><a href="/authors/add">Add author</a></h2>
+    <table class="table">
+        <tr>
+            <th><h2>Authors</h2></th>
+            <th></th>
+            <th></th>
+        </tr>
+    {% for author in authors %}
+        <tr>
+            <td><a href="author{{ author.id }}/songs">{{ author.name }}</a> </td>
+            <td><a class="" href="/author{{ author.id }}/edit/">Edit</a></td>
+            <td><a class="" href="/author{{ author.id }}/delete/" onclick="return confirm('Delete author {{ author.name }}?')">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock content %}

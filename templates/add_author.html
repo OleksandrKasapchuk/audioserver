@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block links %}
+    
+{% endblock links %}
+
+{% block content %}
+    <link href="/static/css/style.css" rel="stylesheet"  type="text/css">
+    <form method="post">
+        <style>
+            h3, input {
+                margin-left: 10px
+            }
+        </style>
+        <h3>Add Author</h3>
+        {% if errors %}
+        <div class="errors">
+            {% for error in errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <input type="text" name="name", placeholder="name">
+        <input type="submit">
+        
+    </form>
+{% endblock content %}

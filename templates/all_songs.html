@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block links %}
+    
+{% endblock links %}
+
+
+{% block content %}
+    <table class="table">
+        <link href="/static/css/style.css" rel="stylesheet"  type="text/css">
+        <tr>
+            
+            <th><h2>Name</h2></th>
+            <th><h2>Description</h2></th>
+            <th><h2>Year</h2></th>
+            <th><h2>Audio</h2></th>
+        </tr>
+    {% for song in songs %}
+        <tr>
+            <td><h5>{{ song.title }}</h5></td>
+            <td><h5>{{ song.description }}</h5></td>
+            <td><h5>{{ song.year }} </h5></td>
+            <td><audio controls>
+                <source src="/static/audios/{{song.title}}.mp3" type="audio/mp3">
+            </audio></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock content %}
